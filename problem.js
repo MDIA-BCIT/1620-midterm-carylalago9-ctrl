@@ -1,5 +1,8 @@
 /*
-Create a function that simulates a simple password checking system. The function will take in a password and a user's input as parameters. It will then compare the user's input to the password.
+Create a function that simulates a simple password checking system. 
+The function will take in a password and a user's input as parameters. 
+It will then compare the user's input to the password.
+
 
 - If the user's input matches the password exactly, log out "Access Granted!"
 - If the user's input does not match, log out "Access Denied!"
@@ -13,3 +16,30 @@ CHALLENGE
 - If the password is less than 5 characters, log out "Your password is too short!".
 */
 
+function checkPassword(password, userInput) {
+    if (password.length < 5) {
+        console.log("Your password is too short!");
+    }
+
+    if (userInput === "forgot") {
+        console.log("Here is a hint");
+        return;
+    }
+
+    if (userInput === "reset") {
+        console.log("Let's reset your account");
+        return;
+    }
+
+    if (userInput === password) {
+        console.log("Access Granted!");
+
+        if (password === "forgot" || password === "reset") {
+            console.log(
+                "This password you set should not be used because it glitches the system"
+            );
+        }
+    } else {
+        console.log("Access Denied!");
+    }
+}
